@@ -1,0 +1,19 @@
+@startuml Enterprise
+    !includesub /HHRR/hhrr.puml!hhrr
+    !includesub /storage/storage.puml!storage
+    !includesub /garage/garage.puml!garage
+    !includesub /enterprise/enterprise.puml!enterprise
+
+    .Enterprice o-- .IHHRR
+    .Enterprice "1" *-- "1" .ICEO: contains
+    .Enterprice "1" *-- "1" .IAdmin: contains
+    .Enterprice "1" *-- "many" .ISupervisor: contains
+
+    .Enterprice "1" o-- "many" .IStorage
+    .Storage "1" *-- "1" .IDirector
+    .Storage "1" *-- "many" .IWorker: contains
+
+    .Enterprice "1" o-- "many" .IGarage
+    .Transport "many" o-down-  "many" .IDriver
+
+@enduml

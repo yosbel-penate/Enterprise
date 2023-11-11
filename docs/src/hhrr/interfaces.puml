@@ -1,0 +1,13 @@
+@startuml
+    !startsub interface
+        package bissneses.hhrr.interface #DDDDDD {
+            interface IHHRR
+            interface IDirector
+            interface IWorker
+            interface IAdmin
+            interface ISupervisor
+            interface ICEO
+            interface IDriver
+        }
+    !endsub
+@enduml

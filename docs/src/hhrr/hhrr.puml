@@ -1,0 +1,40 @@
+@startuml
+    !startsub hhrr
+        package bissneses.hhrr #DDDDDD {
+            package bissneses.hhrr.domain #DDDDDD {
+                !includesub ./interfaces.puml!interface
+                class Executive
+                class HHRR
+                class Director
+                class Worker
+                class Admin
+                class Supervisor
+                class CEO
+
+                HHRR "1" *-- "1" Director
+                HHRR "1" *-- "many" User: has
+                User <|-- Worker
+                Worker <|-- Executive
+                Executive <|-- Admin
+                Executive <|-- Supervisor
+                Executive <|-- CEO
+                Executive <|-- Director: directed by
+                Driver -up-|> Worker
+
+                IHHRR <|.. HHRR
+                IDirector <|.. Director
+                IWorker <|.. Worker
+                IAdmin <|.. Admin
+                ISupervisor <|.. Supervisor
+                ICEO <|.. CEO
+                IDriver <|.. Driver
+            }
+            package bissneses.hhrr.application #DDDDDD {
+
+            }
+            package bissneses.hhrr.infrastructure #DDDDDD {
+
+            }
+        }
+    !endsub
+@enduml

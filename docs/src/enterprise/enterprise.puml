@@ -1,0 +1,7 @@
+@startuml
+    !startsub enterprise
+        package bissneses.enterprise #DDDDDD {
+            class Enterprice
+        }
+    !endsub
+@enduml

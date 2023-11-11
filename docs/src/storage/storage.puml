@@ -1,0 +1,29 @@
+@startuml
+    !startsub storage
+        package bisneses.storage #DDDDDD {
+            package bisneses.storage.domain #DDDDDD {
+                !includesub ./interfaces.puml!interface
+                class Stand
+                class Product
+                class Storage
+                class KeyValueItem
+                class VolumeDriver
+                class ProfitGenerator
+
+                Stand o-- Product
+                Storage *-- Stand
+                Product <|-- KeyValueItem
+                Product <|-- VolumeDriver
+                Product <|-- ProfitGenerator
+
+                IStorage <|.. Storage
+            }
+            package bissneses.storage.application #DDDDDD {
+
+            }
+            package bissneses.storage.infrastructure #DDDDDD {
+
+            }
+        }
+    !endsub
+@enduml

@@ -1,0 +1,45 @@
+@startuml
+    !startsub garage
+        package bissneses.garage #DDDDDD {
+            package bissneses.garage.domain #DDDDDD {
+                !includesub ./interfaces.puml!interface
+                class ManageGarageGroup{
+                    +createGarage( ITransport garage )
+                    +readGarage( Integer garagetId  )
+                    +updateGarageById( ITransport garage )
+                    +deleteGarageById( Integer garagetId )
+                }
+                class Garage{
+                    -garageID: Integer
+                    -capacity: Integer
+                    +createTransport( ITransport transport )
+                    +readTransport( Integer transportId  )
+                    +updateTrasportById( ITransport transport )
+                    +deleteTrasportById( Integer transportId )
+                }
+                Class Transport
+                class Car
+                class Truck
+                class PickUpTruck
+                class Bike
+                class Motorcycle
+
+                ManageGarageGroup "1" *-- "many" Garage
+                Garage "1" o-- "many" Transport
+                Transport  <|--  Car
+                Transport  <|--  Truck
+                Transport  <|--  PickUpTruck
+                Transport  <|--  Bike
+                Transport  <|--  Motorcycle
+
+                IManageGarageGroup <|.. ManageGarageGroup
+                IGarage <|.. Garage
+                ITransport <|.. Transport
+            }
+            !includesub ./garageApplication.puml!application
+            package bissneses.garage.infrastructure #DDDDDD {
+
+            }
+        }
+    !endsub
+@enduml

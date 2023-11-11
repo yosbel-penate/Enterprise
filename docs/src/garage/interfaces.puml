@@ -1,0 +1,11 @@
+@startuml
+    !startsub interface
+        package bissneses.garage.interface #DDDDDD {
+            interface IGarage
+            interface ITransport
+            interface IManageGarageGroup{
+                +getTransportTypeGroup(): TransportTypeEnum
+            }
+        }
+    !endsub
+@enduml

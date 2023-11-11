@@ -1,0 +1,21 @@
+@startuml
+    !startsub application
+        package  bissneses.garage.application #DDDDDD {
+            class FilterGarageGroupControler{
+                +getGarageById(Integer garageId):List<IGarage>
+            }
+
+            class FilterTransportGroupControler{
+                +getTransportGroupByAgeRange(Integer fromAge, Integer toAge):List<ITransport>
+                +getTransportGroupByType(Integer transportType):List<ITransport>
+                +getActiveTransportGroup():List<ITransport>
+            }
+
+            FilterTransportGroupControler::getTransportGroupByAgeRange ..> .ITransport
+            FilterTransportGroupControler::getTransportGroupByType ..> .ITransport
+            FilterTransportGroupControler::getActiveTransportGroup ..> .ITransport
+            FilterGarageGroupControler::getGarageGroupById ..> .IManageGarageGroup
+            FilterGarageGroupControler::getGarageById ..> IGarage
+        }
+    !endsub
+@enduml

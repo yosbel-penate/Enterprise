@@ -1,0 +1,7 @@
+@startuml
+    !startsub interface
+        package bissneses.storage.interface #DDDDDD {
+            interface IStorage
+        }
+    !endsub
+@enduml
